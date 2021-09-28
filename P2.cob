@@ -49,10 +49,12 @@
            01 gradeFac PIC 9.
            *>qpts = gradeFac * credits
            01 qpts PIC 99.
+           01 zQpts PIC ZZ.
            01 semEarned PIC 99.
            01 cumEarned PIC 99.
            01 semQpts PIC 99.
            01 cumQpts PIC 999.
+           01 zCumQpts PIC ZZZ.
            01 semGPA PIC 9.99.
            01 cumGPA PIC 9.99.
       
@@ -182,10 +184,11 @@
            END-IF.
 
            COMPUTE qpts = gradeFac * credits.
+           MOVE qpts to zQpts.
 
            DISPLAY course, cTitle, " ", grade, "     " WITH NO ADVANCING
            DISPLAY credits, ".00        " WITH NO ADVANCING
-           DISPLAY qpts, ".00".
+           DISPLAY zQpts, ".00".
            
            MOVE " " to txt
            STRING  course
@@ -195,7 +198,7 @@
                    "     "
                    credits
                    ".00        "
-                   qpts
+                   zQpts
                    ".00"
            into txt
            END-STRING
@@ -212,6 +215,9 @@
        finishSemester.
            COMPUTE cumEarned = cumEarned + semEarned.
            COMPUTE cumQpts = cumQpts + semQpts.
+
+           MOVE cumQpts to zCumQpts.
+
            COMPUTE semGPA = semQpts / semEarned.
            COMPUTE cumGPA = cumQpts / cumEarned.
            DISPLAY "                         SEMESTER" WITH NO ADVANCING
@@ -233,14 +239,14 @@
            DISPLAY "                         " WITH NO ADVANCING
            DISPLAY "CUMMULATIVE         " WITH NO ADVANCING
            DISPLAY cumEarned, ".00      " WITH NO ADVANCING
-           DISPLAY cumQpts, ".00     " WITH NO ADVANCING
+           DISPLAY zCumQpts, ".00     " WITH NO ADVANCING
            DISPLAY cumGPA.
 
            MOVE " " to txt
            STRING  "                         CUMMULATIVE         "
                    cumEarned
                    ".00      "
-                   cumQpts
+                   zCumQpts
                    ".00     "
                    cumGPA
            into txt
