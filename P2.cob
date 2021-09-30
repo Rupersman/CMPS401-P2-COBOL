@@ -221,15 +221,15 @@
            COMPUTE semGPA = semQpts / semEarned.
            COMPUTE cumGPA = cumQpts / cumEarned.
            DISPLAY "                         SEMESTER" WITH NO ADVANCING
-           DISPLAY "            ", semEarned, ".00" WITH NO ADVANCING
-           DISPLAY "       ", semQpts, ".00     " WITH NO ADVANCING
+           DISPLAY "           ", semEarned, ".00" WITH NO ADVANCING
+           DISPLAY "        ", semQpts, ".00     " WITH NO ADVANCING
            DISPLAY semGPA
 
            MOVE " " to txt
            STRING  "                         SEMESTER"
-                   "            "
+                   "           "
                    semEarned
-                   ".00       "
+                   ".00        "
                    semQpts
                    ".00     "
            into txt
@@ -237,15 +237,15 @@
            WRITE outRecord
 
            DISPLAY "                         " WITH NO ADVANCING
-           DISPLAY "CUMMULATIVE         " WITH NO ADVANCING
-           DISPLAY cumEarned, ".00      " WITH NO ADVANCING
+           DISPLAY "CUMMULATIVE        " WITH NO ADVANCING
+           DISPLAY cumEarned, ".00       " WITH NO ADVANCING
            DISPLAY zCumQpts, ".00     " WITH NO ADVANCING
            DISPLAY cumGPA.
 
            MOVE " " to txt
-           STRING  "                         CUMMULATIVE         "
+           STRING  "                         CUMMULATIVE        "
                    cumEarned
-                   ".00      "
+                   ".00       "
                    zCumQpts
                    ".00     "
                    cumGPA
